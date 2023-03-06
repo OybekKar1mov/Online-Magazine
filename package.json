@@ -2,7 +2,7 @@
   "name": "Magazine",
   "version": "1.0.0",
   "description": "Online Magazine",
-  "main": "index.js",
+  "main": "src/html/index.html",
   "source": "src/js/app.js",
   "scripts": {
     "dev": "parcel ./src/html/*.html --open",
