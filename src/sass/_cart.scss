@@ -1,0 +1,147 @@
+// Container
+.cartSection {
+  width: 65%;
+  float: left;
+  h2 {
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 50px;
+    margin: 40px 0 30px 0;
+    color: #333;
+  }
+  .cartMenu {
+    width: 100%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    .cart {
+      width: 600px;
+      height: 120px;
+      border-top: 1px solid #ebebeb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      .cartCancel {
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+      }
+      .cartGreen {
+        width: 100px;
+        height: 72px;
+        margin-left: 15px;
+      }
+      h4 {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 21px;
+        margin-left: 38px;
+      }
+      .cartPcs {
+        border: 1px solid #ebebeb;
+        border-radius: 5px;
+        margin-left: 75px;
+        display: flex;
+        // text-align: center;
+        // justify-content: center;
+        align-items: center;
+        button {
+          width: 40px;
+          height: 30px;
+          border: 1px solid #ebebeb;
+          border-radius: 0;
+          cursor: pointer;
+        }
+        .displayPcs {
+          margin: 0px 10px;
+        }
+      }
+      h3 {
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 24px;
+        margin-left: 63px;
+      }
+    }
+  }
+}
+
+// Aside
+
+aside {
+  width: 35%;
+  height: 420px;
+  float: right;
+  margin-top: 50px;
+  padding: 30px 0 30px 0;
+  background: #ffffff;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 25px;
+  }
+  h4 {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 24px;
+    margin-top: 40px;
+    span {
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 24px;
+      margin-left: 65px;
+      color: #00ac4e;
+    }
+  }
+
+  .cartPrice {
+    h5 {
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 24px;
+      margin-top: 50%;
+    }
+    h6 {
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 25px;
+      margin-top: 6px;
+    }
+  }
+  button {
+    width: 164px;
+    height: 52px;
+    background: #00ac4e;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-top: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 21px;
+    color: #fff;
+  }
+  .clearBtn {
+    width: 70px;
+    height: 52px;
+    background: #ff0000;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 21px;
+    color: #fff;
+  }
+}

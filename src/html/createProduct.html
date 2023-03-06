@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+  />
+    <title>Online Magazine</title>
+  </head>
+  <body>
+    <div class="upSect">
+      <div class="container">
+        <div class="createProduct">
+          <a href="../html/index.html"
+            ><img src="../img/plus.png" alt="Plus" class="plusImg"
+          /></a>
+          <h2>Создать свой Продукт</h2>
+          <form class="productForm">
+            <input type="text" name="name" placeholder="Имя продукта" />
+            <input type="text" name="description" placeholder="О продукте" />
+            <input
+              type="text"
+              name="categoryId"
+              placeholder="Категория продукта"
+            />
+            <input type="number" name="price" placeholder="Цена продукта" />
+            <input
+              type="number"
+              name="salePrice"
+              placeholder="Цена продукта в магазинах"
+            />
+            <input
+              type="number"
+              name="quantity"
+              placeholder="Количество продукта"
+            />
+            <button type="submit">Создать</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="../js/app.js" type="module"></script>
+  </body>
+</html>

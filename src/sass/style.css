@@ -1,0 +1,441 @@
+@import url("./_cart.scss");
+@import url("https://fonts.cdnfonts.com/css/tt-norms-pro");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Based */
+body {
+  font-family: "TT Norms Pro", sans-serif;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.fa-solid,
+.fas {
+  font-weight: 900;
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+nav {
+  width: 100%;
+  height: 90px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.12);
+}
+nav .navbar {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+}
+nav .navbar .logo {
+  width: 111px;
+  height: 31px;
+  display: flex;
+}
+nav .navbar .leftMenu ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+nav .navbar .leftMenu ul li a {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: #333;
+  margin-right: 45px;
+}
+nav .navbar .rightMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+nav .navbar .rightMenu a img {
+  width: 18px;
+  height: 18px;
+}
+nav .navbar .rightMenu span {
+  margin-left: 10px;
+}
+nav .navbar .rightMenu .peopleIcon,
+nav .navbar .rightMenu .KorzinaIcon {
+  width: 21px;
+  height: 21px;
+  margin-left: 30px;
+}
+
+section {
+  width: 100%;
+  height: 100%;
+}
+section .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+section .banner {
+  width: 994px;
+  height: 253px;
+  margin-top: 60px;
+  background-image: url("/src/img/banner.png");
+  background-size: cover;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(180deg, #f1f1fb 0%, #ebebf5 100%);
+  box-shadow: 0px 0px 18.0727px rgba(0, 0, 0, 0.03);
+  border-radius: 18px;
+}
+section .banner .bannerFood {
+  width: 410px;
+  height: 253px;
+}
+section .banner .bannerText {
+  width: 450px;
+  margin-left: 40px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 38px;
+  color: #333333;
+}
+section .banner .bannerText button {
+  width: 217px;
+  height: 52px;
+  background: #00ac4e;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 20px;
+  margin-top: 31px;
+  color: #fff;
+  cursor: pointer;
+}
+section .tabBar {
+  width: 100%;
+  height: auto;
+}
+section .tabBar .tabBarUl {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+section .tabBar .tabBarUl li a {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 27px;
+  color: #4f4f4f;
+}
+section .tabBar .tabBarUl li a:focus {
+  padding: 10px 14px;
+  background: #00ac4e;
+  border-radius: 5px;
+  color: #fff;
+}
+section .allCategories {
+  width: 100%;
+  height: auto;
+}
+section .allCategories h2 {
+  margin-top: 50px;
+}
+section .allCategories .cards {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+section .allCategories .cards .card {
+  width: 200px;
+  height: 320px;
+  margin-top: 100px;
+  margin-right: 60px;
+}
+section .allCategories .cards .card:last-child {
+  margin-right: 0;
+}
+section .allCategories .cards .card .cardImg {
+  width: 100%;
+  height: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #ffffff 0%, #e5e5e5 0.01%, #e6e6e6 100%);
+  border-radius: 4px;
+}
+section .allCategories .cards .card .cardImg img {
+  width: 74px;
+  height: 56px;
+}
+section .allCategories .cards .card .cardText {
+  width: 100%;
+  height: auto;
+}
+section .allCategories .cards .card .cardText h3 {
+  margin-top: 10px;
+  margin-bottom: 6px;
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 22px;
+  letter-spacing: 0em;
+}
+section .allCategories .cards .card .cardText p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+}
+section .allCategories .cards .card .cardText .priceH2 {
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 23px;
+  letter-spacing: 0em;
+  margin-top: 10px;
+}
+section .allCategories .cards .card .cardText .priceH2 span {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 0em;
+  margin-left: 18px;
+  color: #828282;
+}
+section .allCategories .cards .card .cardText button {
+  width: 140px;
+  height: 38px;
+  border-radius: 4px;
+  background: #00ac4e;
+  border-radius: 4px;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 14px;
+  margin-top: 24px;
+  cursor: pointer;
+}
+section .allCategories .cards .card .cardText .cardStar {
+  margin-top: 12px;
+}
+section .allCategories .cards .card .cardText .cardStar img {
+  width: 16px;
+  height: 16px;
+}
+
+.upSect {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.upSect .sign-up,
+.upSect .createProduct {
+  width: 384px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 18px;
+  box-shadow: 6px 8px 21px 5px rgba(0, 0, 0, 0.75);
+}
+.upSect .sign-up .plusImg,
+.upSect .createProduct .plusImg {
+  width: 53px;
+  height: 53px;
+}
+.upSect .sign-up .peopleImg,
+.upSect .createProduct .peopleImg {
+  width: 76px;
+  height: 76px;
+}
+.upSect .sign-up h2,
+.upSect .createProduct h2 {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 23px;
+  margin-bottom: 30px;
+}
+.upSect .sign-up .signUp input,
+.upSect .sign-up .signIn input,
+.upSect .sign-up .productForm input,
+.upSect .sign-up .orderForm input,
+.upSect .sign-up .productEditForm input,
+.upSect .createProduct .signUp input,
+.upSect .createProduct .signIn input,
+.upSect .createProduct .productForm input,
+.upSect .createProduct .orderForm input,
+.upSect .createProduct .productEditForm input {
+  width: 80%;
+  height: 48px;
+  background: #fcfcfc;
+  border: 1px solid #ebebeb;
+  border-radius: 6px;
+  margin-bottom: 27px;
+  padding-left: 10px;
+  outline: none;
+}
+.upSect .sign-up .signUp button,
+.upSect .sign-up .signIn button,
+.upSect .sign-up .productForm button,
+.upSect .sign-up .orderForm button,
+.upSect .sign-up .productEditForm button,
+.upSect .createProduct .signUp button,
+.upSect .createProduct .signIn button,
+.upSect .createProduct .productForm button,
+.upSect .createProduct .orderForm button,
+.upSect .createProduct .productEditForm button {
+  width: 176px;
+  height: 50px;
+  background: #00ac4e;
+  border-radius: 6px;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 20px;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+.user {
+  width: 100%;
+  height: auto;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.user .aboutUser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user .aboutUser img {
+  width: 200px;
+  height: 200px;
+  border: #000;
+  border-radius: 50px;
+}
+.user .aboutUser .documentUser {
+  float: right;
+  margin-left: 50px;
+}
+.user .aboutUser .documentUser h3 {
+  font-size: 20px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.profilebtn {
+  width: 100px;
+  height: 30px;
+  background-color: #ff0000;
+  border: none;
+  border-radius: 15px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.orderDisp {
+  width: 100%;
+  height: 50vh;
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.orderDisp .order_address,
+.orderDisp .order_data {
+  width: 40%;
+  height: auto;
+  border-radius: 15px;
+  margin-top: 30px;
+  padding: 15px;
+  padding-top: 20px;
+  box-shadow: 6px 10px 11px 11px rgba(0, 255, 30, 0.39);
+}
+.orderDisp .order_address h3,
+.orderDisp .order_data h3 {
+  margin-top: 5px;
+  font-size: 18px;
+  font-weight: normal;
+}
+.orderDisp .order_address h4,
+.orderDisp .order_data h4 {
+  display: flex;
+  margin-top: 50%;
+  font-size: 20px;
+  font-weight: normal;
+  color: #ff0000;
+}
+.orderDisp .order_address .orderComplete,
+.orderDisp .order_data .orderComplete {
+  width: 100px;
+  height: 50px;
+  margin-top: 15px;
+  background-color: #00ac4e;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+  color: #fff;
+}
+.orderDisp .order_address .orderCancel,
+.orderDisp .order_data .orderCancel {
+  width: 100px;
+  height: 50px;
+  margin-top: 15px;
+  background-color: #ff0000;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+  color: #fff;
+}
+
+.searchForm .searchInput {
+  width: 200px;
+  height: 30px;
+  border: 1px solid #00ac4e;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  padding-left: 10px;
+  outline: none;
+  color: #000;
+}
+.searchForm button {
+  width: 60px;
+  height: 30px;
+  border: none;
+  background-color: #00ac4e;
+  cursor: pointer;
+  color: #fff;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}/*# sourceMappingURL=style.css.map */
