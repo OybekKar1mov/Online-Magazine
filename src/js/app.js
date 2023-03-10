@@ -207,10 +207,17 @@ document.addEventListener("DOMContentLoaded", () => {
         ToastAnalyse(err);
       });
 
-    const profilebtn = document.querySelector(".profilebtn");
+    const profilebtn = document.querySelector(".deleteProfile");
 
     profilebtn.addEventListener("click", () => {
       deleteProfile();
+      location.reload();
+    });
+
+    const logoutProfile = document.querySelector(".logoutProfile");
+    logoutProfile.addEventListener("click", () => {
+      localStorage.removeItem("token");
+      localStorage.removeItem("userId");
       location.reload();
     });
   }

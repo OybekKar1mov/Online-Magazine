@@ -1,66 +1,51 @@
 import Axios from "axios";
 import config from "../configs";
-import Toastify from 'toastify-js'
+import Toastify from "toastify-js";
+
 const { baseURL, baseImgUrl } = config;
+
 const axios = Axios.create({
-    baseURL,
+  baseURL,
 });
 const ApiForImg = Axios.create({
-    baseURL: baseImgUrl,
+  baseURL: baseImgUrl,
 });
 
 function getToken(config) {
-    config.headers.Authorization = localStorage.getItem("token")
-        ? `Bearer ${localStorage.getItem("token")}`
-        : "";
-    return config;
-
+  config.headers.authorization = localStorage.getItem("token")
+    ? `Bearer ${localStorage.getItem("token")}`
+    : "";
+  return config;
 }
 
-
 axios.interceptors.request.use(
-    (config) => {
-        return getToken(config);
-    },
-    (error) => {
-        return Promise.reject(error);
-    }
+  (config) => {
+    return getToken(config);
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
 );
-
-ApiForImg.interceptors.request.use(
-    (config) => getToken(config),
-    (error) => {
-        return Promise.reject(error);
-    }
-);
-
-export { ApiForImg, axios as default };
-
 
 axios.interceptors.response.use(
-    response => response,
-    error => {
-        if (error.response.status === 401 || 404 || 400 || 402 || 502 || 500) {
-            Toastify({
-                text: error.response.data.msg,
-                duration: 4000,
-                newWindow: true,
-                close: true,
-                gravity: "top",
-                position: "right",
-                stopOnFocus: true,
-                onClick: function () { }
-            }).showToast();
-        } else {
-            Toastify({
-                text: "Your error is not response",
-                duration: 4000,
-                newWindow: true,
-                close: true,
-                gravity: "top",
-                position: "right",
-                stopOnFocus: true,
-                onClick: function () { }
-            }).showToast();
-        }
-    }); 
+  (response) => {
+    return response;
+  },
+  (error) => {
+    console.log(error);
+    if (error.response.status === 404 || 401 || 400) {
+      Toastify({
+        text: error.response.data.msg,
+        duration: 3000,
+      }).showToast();
+    } else {
+      Toastify({
+        text: error.response.data.msg,
+        duration: 3000,
+      }).showToast();
+    }
+    return Promise.reject(error);
+  }
+);
+
+export { axios as default };

@@ -1,5 +1,5 @@
 {
-  "name": "Magazine",
+  "name": "magazine",
   "version": "1.0.0",
   "description": "Online Magazine",
   "source": "src/js/app.js",
