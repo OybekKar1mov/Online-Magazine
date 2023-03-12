@@ -85,25 +85,17 @@ document.addEventListener("DOMContentLoaded", () => {
       signUp(formData)
         .then((data) => {
           console.log(data);
-          if (data.success === true) {
-            localStorage.setItem("token", data.data.token);
-            localStorage.setItem("userId", data.data.payload._id);
-            location.href = "/";
+          if (data.data.success === true) {
+            console.log(data);
+            localStorage.token = data.data.token;
+            localStorage.userId = data.data.user._id;
+            localStorage.user = JSON.stringify(data.data.user.role);
+            location.assign("/index.html");
           } else {
-            Toastify({
-              text: data.data.msg,
-              duration: 4000,
-              newWindow: true,
-              close: true,
-              gravity: "top",
-              position: "right",
-              stopOnFocus: true,
-              onClick: function () {},
-            }).showToast();
+            ToastAnalyse(data.data.msg);
           }
         })
         .catch((err) => {
-          alert(err.response.data.msg);
           ToastAnalyse(err);
         });
     });
@@ -271,7 +263,6 @@ document.addEventListener("DOMContentLoaded", () => {
         ToastAnalyse(err);
       });
   }
-
   if (page === "/productUpdate.html" || page === "/productUpdate") {
     const form = document.querySelector(".productEditForm");
     console.log(form);
@@ -288,7 +279,7 @@ document.addEventListener("DOMContentLoaded", () => {
       );
       console.log(formData);
 
-      updateProduct(sessionStorage.getItem("id"), formData)
+      updateProduct(history.state.id, formData)
         .then((data) => {
           console.log(data);
         })

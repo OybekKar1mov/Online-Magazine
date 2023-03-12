@@ -61,8 +61,9 @@ export function productEvent() {
       }
       let editProd = element?.closest(".editPr")?.classList.contains("editPr");
       if (editProd) {
-        sessionStorage.setItem("id", `${id}`);
-        location.assign("/productUpdate.html");
+        if (!id) return;
+        history.pushState({ id }, null, "/updateProd.html");
+        location.reload();
       }
     });
   });
