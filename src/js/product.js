@@ -1,14 +1,15 @@
+import configs from "../configs";
 import { addCart, addFavorite } from "../api";
-
 export function displayProduct(data = []) {
   console.log(data);
   let result = "";
   const productMenuNode = document.querySelector(".cards");
   console.log(productMenuNode);
   data.forEach((product) => {
+    const imgs = product.img ? product.img : configs.defaultImg + "400";
     result += `<div class="card" data-id="${product._id}">
         <div class="cardImg">
-        <img src="../img/cardImg.png" alt="Card Img" />
+        <img src="${imgs}" alt="Card Img" />
         </div>
 <div class="cardText">
   <h3>${product.name}</h3>
@@ -61,6 +62,7 @@ export function productEvent() {
       }
       let editProd = element?.closest(".editPr")?.classList.contains("editPr");
       if (editProd) {
+        console.log(id);
         if (!id) return;
         history.pushState({ id }, null, "/productUpdate.html");
         location.reload();

@@ -1,3 +1,4 @@
+import configs from "../configs";
 import "../sass/style.scss";
 import {
   signUp,
@@ -266,7 +267,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (page === "/productUpdate.html" || page === "/productUpdate") {
     const form = document.querySelector(".productEditForm");
     console.log(form);
-
+    console.log(history.state.id);
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       const formData = new editProduct(
@@ -282,11 +283,11 @@ document.addEventListener("DOMContentLoaded", () => {
       updateProduct(history.state.id, formData)
         .then((data) => {
           console.log(data);
+          location.assign("/");
         })
         .catch((err) => {
           ToastAnalyse(err);
         });
-      location.assign("/");
     });
   }
 });
