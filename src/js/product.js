@@ -62,7 +62,7 @@ export function productEvent() {
       let editProd = element?.closest(".editPr")?.classList.contains("editPr");
       if (editProd) {
         if (!id) return;
-        history.pushState({ id }, null, "/updateProd.html");
+        history.pushState({ id }, null, "/productUpdate.html");
         location.reload();
       }
     });

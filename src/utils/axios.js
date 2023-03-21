@@ -44,6 +44,7 @@ axios.interceptors.response.use(
         duration: 3000,
       }).showToast();
     }
+
     return Promise.reject(error);
   }
 );
