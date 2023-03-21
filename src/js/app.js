@@ -304,3 +304,4 @@ export async function ToastAnalyse(display) {
     onClick: function () {},
   }).showToast();
 }
+

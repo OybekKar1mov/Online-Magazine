@@ -6,6 +6,12 @@ export function displayProduct(data = []) {
   const productMenuNode = document.querySelector(".cards");
   console.log(productMenuNode);
   data.forEach((product) => {
+    // Description cut
+    const originalText = product.description;
+    const maxLength = 60;
+
+    const cuttedText = cutText(originalText, maxLength);
+    // img set
     const imgs = product.img ? product.img : configs.defaultImg + "400";
     result += `<div class="card" data-id="${product._id}">
         <div class="cardImg">
@@ -16,7 +22,7 @@ export function displayProduct(data = []) {
   <i class="fa-solid fa-heart cartFavorite" data-id="${product._id}"></i>
   <i class="fa-solid fa-message-pen editPr" data-id="${product._id}"></i>
   <p>
-  ${product.description}
+  ${cuttedText}
   </p>
   <div class="cardStar">
     <img src="../img/star.png" alt="Star" />
@@ -69,4 +75,11 @@ export function productEvent() {
       }
     });
   });
+}
+
+function cutText(text, maxLength) {
+  if (text.length > maxLength) {
+    text = text.substring(0, maxLength) + "...";
+  }
+  return text;
 }
