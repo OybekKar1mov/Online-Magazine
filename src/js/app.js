@@ -66,6 +66,16 @@ document.addEventListener("DOMContentLoaded", () => {
           console.log(err);
         });
     });
+
+    const profileA = document.querySelector(".profileA");
+
+    profileA.addEventListener("click", () => {
+      if (localStorage.getItem("token")) {
+        location.assign("/profile.html");
+      } else {
+        location.assign("/signIn.html");
+      }
+    });
   }
 
   if (page === "/signUp.html" || page === "/signUp") {
@@ -191,15 +201,6 @@ document.addEventListener("DOMContentLoaded", () => {
         ToastAnalyse(err);
       });
 
-    getProduct()
-      .then((data) => {
-        displayProduct(data.data.data);
-      })
-      .catch((err) => {
-        console.log(err);
-        ToastAnalyse(err);
-      });
-
     const profilebtn = document.querySelector(".deleteProfile");
 
     profilebtn.addEventListener("click", () => {
@@ -304,4 +305,3 @@ export async function ToastAnalyse(display) {
     onClick: function () {},
   }).showToast();
 }
-
