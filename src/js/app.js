@@ -55,6 +55,8 @@ document.addEventListener("DOMContentLoaded", () => {
         ToastAnalyse(err);
       });
 
+    // Debounce
+
     const debounce = (fn, ms) => {
       let timeout;
       return function () {
@@ -86,13 +88,11 @@ document.addEventListener("DOMContentLoaded", () => {
           });
       }
     }
-    // const formSearch = document.querySelector(".searchForm");
-    // formSearch.addEventListener("submit", (e) => {
-    //   e.preventDefault();
 
     onChange = debounce(onChange, 300);
-
     document.querySelector(".searchInput").addEventListener("keyup", onChange);
+
+    // Link to signIn or Profile
 
     const profileA = document.querySelector(".profileA");
 
