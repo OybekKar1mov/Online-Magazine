@@ -54,18 +54,45 @@ document.addEventListener("DOMContentLoaded", () => {
         // console.log(err);
         ToastAnalyse(err);
       });
-    const formSearch = document.querySelector(".searchForm");
-    formSearch.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const searchInput = document.querySelector(".searchInput");
-      searchProduct(searchInput.value)
-        .then((data) => {
-          displayProduct(data.data.payload);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    });
+
+    const debounce = (fn, ms) => {
+      let timeout;
+      return function () {
+        const fnCall = () => {
+          fn.apply(this, arguments);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(fnCall, ms);
+      };
+    };
+
+    function onChange(e) {
+      if (e.target.value) {
+        return searchProduct(e.target.value)
+          .then((data) => {
+            displayProduct(data.data.payload);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      } else {
+        getProduct()
+          .then((data) => {
+            displayProduct(data.data.data);
+            productEvent();
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    }
+    // const formSearch = document.querySelector(".searchForm");
+    // formSearch.addEventListener("submit", (e) => {
+    //   e.preventDefault();
+
+    onChange = debounce(onChange, 300);
+
+    document.querySelector(".searchInput").addEventListener("keyup", onChange);
 
     const profileA = document.querySelector(".profileA");
 
@@ -305,3 +332,22 @@ export async function ToastAnalyse(display) {
     onClick: function () {},
   }).showToast();
 }
+
+// const debounce = (fn, ms) => {
+//   let timeout;
+//   return function () {
+//     const fnCall = () => {
+//       fn.apply(this, arguments);
+//     };
+//     clearTimeout(timeout);
+//     timeout = setTimeout(fnCall, ms);
+//   };
+// };
+
+// function onChange(e) {
+//   console.log(e.target.value);
+// }
+
+// onChange = debounce(onChange, 200);
+
+// document.getElementById("search").addEventListener("keyup", onChange);
