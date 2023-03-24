@@ -6,26 +6,23 @@ export function displayFavorite(data = []) {
   const productMenuNode = document.querySelector(".cards");
   console.log(productMenuNode);
   data.forEach((product) => {
+    // Description cut
+    const originalText = product.description;
+    const maxLength = 60;
+
+    const cuttedText = cutText(originalText, maxLength);
+    // img set
+    const imgs = product.img ? product.img : configs.defaultImg + "400";
     result += `<div class="card" data-id="${product._id}">
         <div class="cardImg">
-        <img src="../img/cardImg.png" alt="Card Img" />
+        <img src="${imgs}" alt="Card Img" />
         </div>
 <div class="cardText">
   <h3>${product.name}</h3>
-  <i class="fa-solid fa-trash-xmark favoriteDel" data-id="${product._id}"></i>
+  <i class="fa-solid fa-trash-can favoriteDel" data-id="${product._id}"></i>
   <p>
-  ${product.description}
+  ${cuttedText}
   </p>
-  <div class="cardStar">
-    <img src="../img/star.png" alt="Star" />
-    <img src="../img/star.png" alt="Star" />
-    <img src="../img/star.png" alt="Star" />
-    <img src="../img/star.png" alt="Star" />
-    <img
-      src="../img/non select star.png"
-      alt="Non selected Star"
-    />
-  </div>
   <h2 class="priceH2">${product.salePrice}/кг <span>За ${product.quantity}гр.</span></h2>
   <button class="productBtn clickBtn" data-id="${product._id}">В корзину</button>
 </div>
@@ -60,4 +57,11 @@ export function FavoriteEvent() {
       }
     });
   });
+}
+
+function cutText(text, maxLength) {
+  if (text.length > maxLength) {
+    text = text.substring(0, maxLength) + "...";
+  }
+  return text;
 }

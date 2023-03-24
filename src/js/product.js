@@ -19,21 +19,11 @@ export function displayProduct(data = []) {
         </div>
 <div class="cardText">
   <h3>${product.name}</h3>
-  <i class="fa-solid fa-heart cartFavorite" data-id="${product._id}"></i>
-  <i class="fa-solid fa-message-pen editPr" data-id="${product._id}"></i>
+  <i class="fa-solid fa-thumbs-up cartFavorite" data-id="${product._id}"></i>
+  <i class="fa-solid fa-pen editPr"  data-id="${product._id}"></i>
   <p>
   ${cuttedText}
   </p>
-  <div class="cardStar">
-    <img src="../img/star.png" alt="Star" />
-    <img src="../img/star.png" alt="Star" />
-    <img src="../img/star.png" alt="Star" />
-    <img src="../img/star.png" alt="Star" />
-    <img
-      src="../img/non select star.png"
-      alt="Non selected Star"
-    />
-  </div>
   <h2 class="priceH2">${product.salePrice}/кг <span>За ${product.quantity}гр.</span></h2>
   <button class="productBtn clickBtn" data-id="${product._id}">В корзину</button>
 </div>
