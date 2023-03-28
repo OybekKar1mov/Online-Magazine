@@ -1,5 +1,6 @@
 import configs from "../configs";
 import { addCart, addFavorite } from "../api";
+import { ToastAnalyse } from "./app";
 export function displayProduct(data = []) {
   console.log(data);
   let result = "";
@@ -44,17 +45,29 @@ export function productEvent() {
         ?.closest(".clickBtn")
         ?.classList.contains("clickBtn");
       if (cartPlus) {
-        addCart(localStorage.userId, id).then(({ data }) => {
-          console.log(data);
-        });
+        addCart(localStorage.userId, id)
+          .then(({ data }) => {
+            if (data.success === true) {
+              console.log(data);
+              element.innerText = "Уже в корзине";
+              element.style.backgroundColor = "red";
+            }
+          })
+          .catch((err) => {
+            ToastAnalyse(err.response.data.msg);
+          });
       }
       let cartFavorite = element
         ?.closest(".cartFavorite")
         ?.classList.contains("cartFavorite");
       if (cartFavorite) {
-        addFavorite(id).then(({ data }) => {
-          console.log(data);
-        });
+        addFavorite(id)
+          .then(({ data }) => {
+            console.log(data);
+          })
+          .catch((err) => {
+            ToastAnalyse(err.response.data.msg);
+          });
       }
       let editProd = element?.closest(".editPr")?.classList.contains("editPr");
       if (editProd) {

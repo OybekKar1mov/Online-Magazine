@@ -29,12 +29,19 @@ import { editProduct } from "./updateProd";
 import Toastify from "toastify-js";
 import socket from "./socket";
 
+// window.addEventListener("load", () => {
+const loader = document.querySelector("main");
+
+//   loader.classList.add("loader-hidden");
+// });
+
 document.addEventListener("DOMContentLoaded", () => {
   const page = location.pathname;
 
-  socket.on("/orders/new", (data) => {
-    console.log("Ishladi", data);
-  });
+  // socket.on("/orders/new", (data) => {
+  //   console.log("Ishladi", data);
+  //   alert(data);
+  // });
 
   if (page === "/index.html" || page === "/") {
     console.log(page);
@@ -45,14 +52,15 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch((err) => {
         console.log(err);
+        // loader.remove();
       });
     getCategories()
       .then((data) => {
         displayCategory(data.data.payload);
       })
       .catch((err) => {
-        // console.log(err);
-        ToastAnalyse(err);
+        console.log(err);
+        loader.remove();
       });
 
     // Debounce
@@ -76,6 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
           })
           .catch((err) => {
             console.log(err);
+            ToastAnalyse(err.response.data.msg);
           });
       } else {
         getProduct()
@@ -133,9 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ToastAnalyse(data.data.msg);
           }
         })
-        .catch((err) => {
-          ToastAnalyse(err);
-        });
+        .catch((err) => {});
     });
   }
 
@@ -154,9 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
           localStorage.setItem("userId", data.data.payload._id);
           location.href = "/";
         })
-        .catch((err) => {
-          ToastAnalyse(err);
-        });
+        .catch((err) => {});
     });
   }
 
@@ -169,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch((err) => {
         console.log(err);
-        ToastAnalyse(err);
+        loader.remove();
       });
     clrCart();
   }
@@ -199,7 +204,6 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch((err) => {
           alert(err);
-          ToastAnalyse(err);
         });
     });
   }
@@ -213,7 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch((err) => {
         console.log(err);
-        ToastAnalyse(err);
+        loader.remove();
       });
   }
 
@@ -225,7 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch((err) => {
         console.log(err);
-        ToastAnalyse(err);
+        loader.remove();
       });
 
     const profilebtn = document.querySelector(".deleteProfile");
@@ -274,9 +278,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log(data);
           });
         })
-        .catch((err) => {
-          ToastAnalyse(err);
-        });
+        .catch((err) => {});
     });
   }
 
@@ -289,9 +291,10 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch((err) => {
         console.log(err);
-        ToastAnalyse(err);
+        loader.remove();
       });
   }
+
   if (page === "/productUpdate.html" || page === "/productUpdate") {
     const form = document.querySelector(".productEditForm");
     console.log(form);
@@ -313,9 +316,7 @@ document.addEventListener("DOMContentLoaded", () => {
           console.log(data);
           location.assign("/");
         })
-        .catch((err) => {
-          ToastAnalyse(err);
-        });
+        .catch((err) => {});
     });
   }
 });
@@ -332,22 +333,3 @@ export async function ToastAnalyse(display) {
     onClick: function () {},
   }).showToast();
 }
-
-// const debounce = (fn, ms) => {
-//   let timeout;
-//   return function () {
-//     const fnCall = () => {
-//       fn.apply(this, arguments);
-//     };
-//     clearTimeout(timeout);
-//     timeout = setTimeout(fnCall, ms);
-//   };
-// };
-
-// function onChange(e) {
-//   console.log(e.target.value);
-// }
-
-// onChange = debounce(onChange, 200);
-
-// document.getElementById("search").addEventListener("keyup", onChange);

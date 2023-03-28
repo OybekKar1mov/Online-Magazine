@@ -27,26 +27,26 @@ axios.interceptors.request.use(
   }
 );
 
-axios.interceptors.response.use(
-  (response) => {
-    return response;
-  },
-  (error) => {
-    console.log(error);
-    if (error.response.status === 404 || 401 || 400) {
-      Toastify({
-        text: error.response.data.msg,
-        duration: 3000,
-      }).showToast();
-    } else {
-      Toastify({
-        text: error.response.data.msg,
-        duration: 3000,
-      }).showToast();
-    }
+// axios.interceptors.response.use(
+//   (response) => {
+//     return response;
+//   },
+//   (error) => {
+//     console.log(error);
+//     if (error.response.status === 404 || 401 || 400) {
+//       Toastify({
+//         text: error.response.data.msg,
+//         duration: 3000,
+//       }).showToast();
+//     } else {
+//       Toastify({
+//         text: error.response.data.msg,
+//         duration: 3000,
+//       }).showToast();
+//     }
 
-    return Promise.reject(error);
-  }
-);
+//     return Promise.reject(error);
+//   }
+// );
 
 export { axios as default };
