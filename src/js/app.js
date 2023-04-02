@@ -27,21 +27,12 @@ import { displayOrder, orderEvent } from "./getOrders";
 import { displayFavorite, FavoriteEvent } from "./favorite";
 import { editProduct } from "./updateProd";
 import Toastify from "toastify-js";
-import socket from "./socket";
+// import socket from "./socket";
 
-// window.addEventListener("load", () => {
 const loader = document.querySelector("main");
-
-//   loader.classList.add("loader-hidden");
-// });
 
 document.addEventListener("DOMContentLoaded", () => {
   const page = location.pathname;
-
-  // socket.on("/orders/new", (data) => {
-  //   console.log("Ishladi", data);
-  //   alert(data);
-  // });
 
   if (page === "/index.html" || page === "/") {
     console.log(page);
@@ -49,10 +40,10 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((data) => {
         displayProduct(data.data.data);
         productEvent();
+        loader.remove();
       })
       .catch((err) => {
         console.log(err);
-        // loader.remove();
       });
     getCategories()
       .then((data) => {
@@ -60,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch((err) => {
         console.log(err);
-        loader.remove();
       });
 
     // Debounce
@@ -171,10 +161,10 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(data.data);
         displayCart(data.data.payload.items);
         cartFunc();
+        loader.remove();
       })
       .catch((err) => {
         console.log(err);
-        loader.remove();
       });
     clrCart();
   }
@@ -214,10 +204,10 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(data);
         displayFavorite(data.data.payload.items);
         FavoriteEvent();
+        loader.remove();
       })
       .catch((err) => {
         console.log(err);
-        loader.remove();
       });
   }
 
@@ -226,10 +216,10 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((data) => {
         console.log(data);
         displayProfile(data.data.payload);
+        loader.remove();
       })
       .catch((err) => {
         console.log(err);
-        loader.remove();
       });
 
     const profilebtn = document.querySelector(".deleteProfile");
@@ -288,10 +278,10 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(data);
         displayOrder(data.data.payload);
         orderEvent();
+        loader.remove();
       })
       .catch((err) => {
         console.log(err);
-        loader.remove();
       });
   }
 
