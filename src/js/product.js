@@ -7,6 +7,8 @@ export function displayProduct(data = []) {
   const productMenuNode = document.querySelector(".cards");
   console.log(productMenuNode);
   data.forEach((product) => {
+    const noImage =
+      "https://artsmidnorthcoast.com/wp-content/uploads/2014/05/no-image-available-icon-6.png";
     // Description cut
 
     const originalText = product.description;
@@ -26,7 +28,6 @@ export function displayProduct(data = []) {
 <p>
 ${cuttedText}
 </p>
-<h2 class="priceH2">${product.salePrice}/кг <span>За ${product.quantity}гр.</span></h2>
 <button class="productBtn clickBtn" data-id="${product._id}">В корзину</button>
 </div>
 </div>`;

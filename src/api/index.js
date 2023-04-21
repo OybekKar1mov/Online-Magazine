@@ -174,3 +174,12 @@ export function searchProduct(query) {
     return axios.get(url);
   }
 }
+
+export function searchCategory(query) {
+  if (!query) {
+    ToastAnalyse("Please enter params");
+  } else {
+    let url = `products/category/${query}/`;
+    return axios.get(url);
+  }
+}

@@ -18,15 +18,12 @@ li {
 a {
   text-decoration: none;
   color: #000;
+  cursor: pointer;
 }
 
 .fa-solid,
 .fas {
-  font-weight: 900;
-  width: 10px;
-  height: 10px;
   cursor: pointer;
-  padding: 10px;
 }
 
 .container {
@@ -38,6 +35,8 @@ nav {
   width: 100%;
   height: 90px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.12);
+  background-color: #fff;
+  position: fixed;
 }
 nav .navbar {
   width: 100%;
@@ -98,7 +97,7 @@ section .container {
 section .banner {
   width: 994px;
   height: 253px;
-  margin-top: 60px;
+  margin-top: 180px;
   background-image: url("/src/img/banner.png");
   background-size: cover;
   display: flex;
@@ -186,12 +185,13 @@ section .allCategories .cards .card .cardImg {
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 10px;
   background: linear-gradient(180deg, #ffffff 0%, #e5e5e5 0.01%, #e6e6e6 100%);
-  border-radius: 4px;
 }
 section .allCategories .cards .card .cardImg img {
-  width: 74px;
-  height: 56px;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
 }
 section .allCategories .cards .card .cardText {
   width: 100%;
@@ -210,6 +210,7 @@ section .allCategories .cards .card .cardText p {
   font-weight: 400;
   line-height: 19px;
   letter-spacing: 0em;
+  margin-top: 10px;
 }
 section .allCategories .cards .card .cardText .priceH2 {
   font-size: 21px;
@@ -240,12 +241,8 @@ section .allCategories .cards .card .cardText button {
   margin-top: 24px;
   cursor: pointer;
 }
-section .allCategories .cards .card .cardText .cardStar {
-  margin-top: 12px;
-}
-section .allCategories .cards .card .cardText .cardStar img {
-  width: 16px;
-  height: 16px;
+section .allCategories .cards .card .editPr {
+  margin-left: 10px;
 }
 
 .upSect {
@@ -419,6 +416,9 @@ section .allCategories .cards .card .cardText .cardStar img {
   color: #fff;
 }
 
+.searchForm {
+  margin-top: 30px;
+}
 .searchForm .searchInput {
   width: 200px;
   height: 30px;
@@ -438,4 +438,65 @@ section .allCategories .cards .card .cardText .cardStar img {
   color: #fff;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  position: fixed;
+  z-index: 999;
+}
+
+.loader {
+  --loader-size: 70px;
+  --loader-border-size: 6px;
+  --loader-border-color: #00ac4e;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  border: var(--loader-border-size) solid var(--loader-border-color);
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  background-color: transparent;
+  border-radius: 50%;
+  position: relative;
+  animation: rotateX 1s infinite linear;
+}
+
+.loader::before {
+  content: "";
+  border: var(--loader-border-size) solid var(--loader-border-color);
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  background-color: transparent;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  animation: rotateX 0.5s infinite linear reverse;
+}
+
+@keyframes rotateX {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+.loader-hidden {
+  opacity: 0;
+  visibility: hidden;
 }/*# sourceMappingURL=style.css.map */

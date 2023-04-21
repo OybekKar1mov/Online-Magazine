@@ -18,7 +18,7 @@ import {
 import { SignUp } from "./signUp";
 import { SignIn } from "./signIn";
 import { displayProduct, productEvent } from "./product";
-import { displayCategory } from "./categories";
+import { categoryEvent, displayCategory } from "./categories";
 import { cartFunc, clrCart, displayCart } from "./cart";
 import { collectProduct } from "./createProduct";
 import { displayProfile } from "./profile";
@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     getCategories()
       .then((data) => {
         displayCategory(data.data.payload);
+        categoryEvent();
       })
       .catch((err) => {
         console.log(err);
@@ -159,9 +160,9 @@ document.addEventListener("DOMContentLoaded", () => {
     getCart()
       .then((data) => {
         console.log(data.data);
+        loader.remove();
         displayCart(data.data.payload.items);
         cartFunc();
-        loader.remove();
       })
       .catch((err) => {
         console.log(err);
